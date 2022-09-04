@@ -1,0 +1,74 @@
+html, body{
+
+background-color: #8d8ddb;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 1.3rem;
+padding: 30px;
+color: #ffffff;
+
+}
+
+.titulo{
+
+    color: #e45715a1;
+    text-align: center;
+
+}
+
+.img-spider{
+
+    position: relative;
+    top: 20px; left: -2px;
+    border-radius: 45%;
+    border:2px solid rgb(0, 0, 0);
+
+}
+
+.tarea,
+    	.descripcion,
+    	    .fecha { 
+
+    		display: block;
+    		height: 30px;
+            width: 200px;
+
+    	}
+
+.fecha{
+
+    align-items: center;
+
+}
+
+.descripcion{
+
+    min-height: 50px;
+    max-height: 700px;
+
+}
+
+.button{
+
+    position: relative;
+    top: 20px; left: 14%;
+    width: 150px;
+    border-radius:150px;
+    background-color: rgb(131, 106, 106);
+    border: #ffffff;
+
+}
+
+.creacion{
+
+    position: relative;
+    top: 0px; left: 11%;
+    width: 25%;
+
+}
+
+.subTitulo{
+
+    color: #020101a1;
+    text-align: center;
+
+}
