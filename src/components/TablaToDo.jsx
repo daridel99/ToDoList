@@ -3,19 +3,11 @@ import Checkbox from "./Checkbox";
 
 const TablaToDoApp = props => {
 
-	function obtener_localStorage(){
-
-		le
-
-	}
-
-
   const { list, setList, onClick } = props;
 
 	const onChangeStatus = e => {
 		const { name, checked } = e.target;
 
-		// (E)
 		const updateList = list.map(item => ({
 			...item,
 			done: item.id === name ? checked : item.done
@@ -23,13 +15,18 @@ const TablaToDoApp = props => {
 		setList(updateList);
 	};
 
-	// (D)
 	const onClickRemoveItem = e => {
+		if(confirm('confirma que desa borrarlo?'))  { 
 		const updateList = list.filter(item => !item.done);
 		setList(updateList);
+	}
+	else{
+
+		console.log('You clic cancel')
+		
+	}
 	};
 
-	// (A-2)
 	const chk = list.map(item => (
 		<Checkbox key={item.id} data={item} onChange={onChangeStatus} onClick={onClick} />
 	));
@@ -56,7 +53,7 @@ const TablaToDoApp = props => {
 			) : null}
 		</div>
     </>
-  )
-}
+  );
+};
 
 export default TablaToDoApp;

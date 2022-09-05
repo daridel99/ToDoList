@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 
 const Checkbox = props => {
+
 	const {
 		onChange,
 		data: { id, description, done, dateV },

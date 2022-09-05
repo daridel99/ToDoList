@@ -3,11 +3,25 @@ import { useEffect, useState } from 'react';
 import CreacionToDoApp from "./CreacionToDo";
 import TablaToDoApp from "./TablaToDo";
 
-export const ToDoApp = ({titulo_1}) => {
+export const ToDoApp = () => {
 
   const [list, setList] = useState([]); 
   const [id, setId] = useState(-1); 
 
+  useEffect(()=> {
+
+    const obtenerDataLocalStore = () =>{
+
+      const tareasLocalStore = 
+        JSON.parse(localStorage.getItem("tareas")) ?? [];
+      setList(tareasLocalStore);
+
+    };
+
+    obtenerDataLocalStore()
+
+    }, []);
+  
   useEffect(()=> {
 
     localStorage.setItem('tarea', JSON.stringify(list))
@@ -49,7 +63,7 @@ export const ToDoApp = ({titulo_1}) => {
     <>
     <header>
     <div className="titulo">
-    <h1 ><img className="img-spider" src="./public/spidey.webp" width="5%"/> {titulo_1} </h1>
+    <h1 ><img className="img-spider" src="./public/spidey.webp" width="5%"/> To Do List 📥 </h1>
     </div>
     </header>
 
@@ -63,8 +77,3 @@ export const ToDoApp = ({titulo_1}) => {
     </>
   );
 };
-
-ToDoApp.propTypes = {
-    titulo_1: PropTypes.string.isRequired,
-    parrafo_1: PropTypes.number.isRequired
-}

@@ -10,9 +10,8 @@ const CreacionToDoApp = props => {
     const [dateV, setDate] = useState(""); 
 	const handleSubmit = e => {
 		e.preventDefault(); 
-        //localStorage.setItem(elemento?.id || (+new Date()).toString(), 
-                                           // tituloV +": "+ descriptionV + "se entrega en la fecha" + dateV);
-		handleAddItem({
+                                               
+        handleAddItem({
 
             id: elemento?.id || (+new Date()).toString(),
 			done: false,
