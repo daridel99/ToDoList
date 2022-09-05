@@ -63,7 +63,7 @@ export const ToDoApp = () => {
     <>
     <header>
     <div className="titulo">
-    <h1 ><img className="img-spider" src="./public/spidey.webp" width="5%"/> To Do List 📥 </h1>
+    <h1 ><img className="img-spider" src="./public/spidey.png" width="5%"/> To Do List 📥 </h1>
     </div>
     </header>
 
