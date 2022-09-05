@@ -1,60 +1,70 @@
-import { useState } from 'react';
+import PropTypes, { string } from 'prop-types';
+import { useEffect, useState } from 'react';
+import CreacionToDoApp from "./CreacionToDo";
+import TablaToDoApp from "./TablaToDo";
 
-import PropTypes from 'prop-types';
+export const ToDoApp = ({titulo_1}) => {
 
-export const ToDoApp = ({titulo_1, parrafo_1}) => {
+  const [list, setList] = useState([]); 
+  const [id, setId] = useState(-1); 
 
-	  const [counter, setCounter] = useState(0);
+  useEffect(()=> {
 
-    /*
-    const handleSubstract = () => setCounter( counter - 1 );
-    const handleReset = () => setCounter( parrafo_1 );
-    */
-	  const handleNumber = () => setCounter( counter + 1 );
+    localStorage.setItem('tarea', JSON.stringify(list))
+
+  }, [list])
+
+	const handleAddItem = addItem => {
+
+    const index = list?.findIndex(elemento => elemento.id === addItem.id);
+
+    console.log(index);
+    console.log(addItem);
+
+    if( index === -1){
+
+      setList([...list, addItem]); 
+
+    }
+
+    else{
+
+      const nuevaLista = [... list];
+      console.log(nuevaLista[index])
+      nuevaLista[index]=addItem;
+      console.log(nuevaLista[index])
+      setList(nuevaLista);
+
+    }
+	 setId(-1);
+  };
+
+  const onClick = ( id ) => {
+    console.log(id); 
+    setId(String(id))
+    console.log()
+    console.log(list);}
 
   return (
     <>
-    <div class="titulo">
-    <h1 ><img class="img-spider" src="./public/spidey.webp" width="5%"/> {titulo_1} </h1>
+    <header>
+    <div className="titulo">
+    <h1 ><img className="img-spider" src="./public/spidey.webp" width="5%"/> {titulo_1} </h1>
     </div>
-    <p>Tareas activas { counter }</p>
+    </header>
 
-     <form class="creacion">
-			<div className="todo-list">
-				<div className="file-input">
-        <h3 class="subTitulo">Tarea</h3>
-					<input
-						type="text"
-            class="tarea"
-					/>
-          <h3 class="subTitulo">Fecha</h3>
-          <input
-						type="date"
-            class="fecha"
-					/>
-          <h3 class="subTitulo">Descripción</h3>
-          <input
-						type="text"
-            class="descripcion"
-					/>
-				</div>
-			</div>
-    </form> 
-
-    <button
-						class="button"
-            onClick={ handleNumber }
-					>
-						<h3>Crear Tarea</h3>
-					</button>
-
+    <div className="creacion">
+    <CreacionToDoApp handleAddItem={handleAddItem} elemento={list[list?.findIndex(elemento => elemento.id === id)]}/>
+    
+    </div>
+    <div className="lista">
+    <TablaToDoApp list={list} setList={setList} onClick={onClick}/>
+    </div>
     </>
   );
 };
-
 
 ToDoApp.propTypes = {
     titulo_1: PropTypes.string.isRequired,
     parrafo_1: PropTypes.number.isRequired
 }
-
