@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const CreacionToDoApp = props => {
 
     const { handleAddItem, elemento} = props; 
-    console.log({elemento})
+    //console.log({elemento})
 	const [descriptionV, setDescription] = useState("");
     const [tituloV, setTitle] = useState("");
     const [dateV, setDate] = useState(""); 
@@ -26,7 +26,7 @@ const CreacionToDoApp = props => {
     React.useEffect (
         () => {
         if(elemento){
-            setDescription(elemento.description.split(":")[1]);
+            setDescription(elemento.description.split(": ")[1]);
             setTitle(elemento.description.split(":")[0]);
             setDate(elemento.dateV);
         }
@@ -35,12 +35,14 @@ const CreacionToDoApp = props => {
   return (
     <>
      <form onSubmit={handleSubmit}>
-     <div><h3 className="titulo">Creación ToDo</h3></div>
+     <div><h3 className="titulo" >Creación ToDo</h3></div>
 		<div>
 		<div>
 
-        <h3 className="subTitulo">Tarea</h3>
-			<input
+        <h3 className="subTitulo"  >Tarea</h3>
+			<input 
+                id="TS"
+                name="TS"
 				type="text"
                 className="tarea"
                 value={tituloV}
@@ -55,8 +57,10 @@ const CreacionToDoApp = props => {
                 onChange={e => setDate(e.target.value)}
 		/>
 
-        <h3 className="subTitulo">Descripción</h3>
+        <h3 className="subTitulo"  >Descripción</h3>
             <input
+            name="DS"
+            id="DS"
 			type="text"
             className="descripcion"
             value={descriptionV}

@@ -50,7 +50,7 @@ color: #ffffff;
 .button{
 
     position: relative;
-    top: 20px; left: 20%;
+    top: 20px; left: 40%;
     width: 150px;
     border-radius:150px;
     background-color: rgb(131, 106, 106);
@@ -77,21 +77,25 @@ color: #ffffff;
 
     font-size: 1rem;
     color: #000000; 
+    display: flex;
+    justify-content:center;
 
 }
 
-.tareaINV :checked{
+.tareaINV-T{
 
-    text-decoration:line-through;
+    border-style: solid;
 
 }
 
 .lista{
 
     position: relative;
-    top: -553px; left: 60%;
-    width: 25%;
-    overflow: auto; width: 500px; height: 450px
+    top: -530px; left: 50%;
+    width: 30%;
+    overflow: auto; width: 560px; height: 560px;
+    border-style: solid;
+    border-color: #000000;
 
 }
 

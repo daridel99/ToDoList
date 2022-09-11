@@ -37,7 +37,7 @@ const TablaToDoApp = props => {
     <div>
     <div><h3 className="titulo">Tabla ToDo</h3></div>
 
-			{list.length ? chk : "Sin Pendientes"}
+			{list.length ? chk : <center><br/><h2>Sin Pendientes</h2></center>}
 
 			{list.length ? (
 

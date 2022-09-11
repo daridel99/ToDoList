@@ -1,10 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import {ToDoApp} from './components/ToDo';
 import './styles.css';
 
-ReactDOM.createRoot( document.getElementById('root')).render(
- 
-                <ToDoApp />
 
-)
+ 
+
+               // <ToDoApp />
+               ReactDOM.render(<ToDoApp />, document.getElementById("root"));
+
+

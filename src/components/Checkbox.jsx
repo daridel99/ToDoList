@@ -8,12 +8,8 @@ const Checkbox = props => {
 		onClick
 	} = props;
 
-	const onClickRemoveItem = e => {
-		const updateList = list.filter(item => !item.done);
-		setList(updateList);
-	};
 	return (
-		<div >
+		<div className='tareaINV-T'>
 		
 			<label className="todo new-item" onClick={()=> onClick(id)}>
 			<div>
@@ -21,6 +17,7 @@ const Checkbox = props => {
 				<input
 					className="todo__state"
 					name={id}
+					id={id}
 					type="checkbox"
 					defaultChecked={done}
 					onChange={onChange}
